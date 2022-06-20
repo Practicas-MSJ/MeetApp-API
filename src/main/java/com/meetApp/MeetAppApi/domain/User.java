@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -19,5 +20,11 @@ public class User {
     private String name;
     @Column
     private Byte[] photo;
+
+    @OneToMany(mappedBy ="user")
+    private List<Message> messages;
+    @ManyToMany
+    private List<Event> events;
+
 
 }

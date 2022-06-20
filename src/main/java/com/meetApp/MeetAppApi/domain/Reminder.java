@@ -1,5 +1,6 @@
 package com.meetApp.MeetAppApi.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,5 +26,10 @@ public class Reminder {
     private LocalDate date;
     @Column
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "event_id")
+    @JsonBackReference(value = "event-remind")
+    private User user;
 
 }

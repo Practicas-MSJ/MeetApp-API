@@ -1,5 +1,6 @@
 package com.meetApp.MeetAppApi.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,5 +23,10 @@ public class Category {
     private String description;
     @Column
     private boolean favourite;
+
+    @ManyToOne
+    @JoinColumn(name = "message_id")
+    @JsonBackReference(value = "message-category")
+    private Message message;
 
 }

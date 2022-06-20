@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -26,5 +27,12 @@ public class Event {
     private LocalDate date;
     @Column
     private String name;
+
+    @ManyToMany
+    private List<User> users;
+
+    @ManyToMany
+    private List<Reminder> reminders;
+
 
 }
