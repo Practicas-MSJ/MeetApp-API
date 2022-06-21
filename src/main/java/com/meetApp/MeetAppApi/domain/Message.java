@@ -1,6 +1,7 @@
 package com.meetApp.MeetAppApi.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,7 +23,7 @@ public class Message {
     @Column
     private String text;
     @Column(name = "message_date")
-    @DateTimeFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="dd-MM-yyyy")
     private LocalDate date;
     @Column
     private boolean favourite;
