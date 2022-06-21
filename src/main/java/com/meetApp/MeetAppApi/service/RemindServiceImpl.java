@@ -12,8 +12,10 @@ import java.util.List;
 
 @Service
 public class RemindServiceImpl implements RemindService{
+
     @Autowired
     private RemindRepository remindRepository;
+
     @Override
     public List<Reminder> findAllReminders() {
         return remindRepository.findAll();
@@ -42,5 +44,11 @@ public class RemindServiceImpl implements RemindService{
         reminder.setUser(newReminder.getUser());
 
         return remindRepository.save(reminder);
+    }
+
+    @Override
+    public Reminder findReminder(long id) {
+        return remindRepository.findById(id)
+                .orElseThrow(null);
     }
 }
