@@ -23,6 +23,7 @@ public class User {
 
     @OneToMany(mappedBy ="user")
     private List<Message> messages;
+
     @ManyToMany
     private List<Event> events;
 

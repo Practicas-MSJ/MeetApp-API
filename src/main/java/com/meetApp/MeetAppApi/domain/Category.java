@@ -23,6 +23,8 @@ public class Category {
     private String description;
     @Column
     private boolean favourite;
+    @Column
+    private Byte[] photo;
 
     @ManyToOne
     @JoinColumn(name = "message_id")
