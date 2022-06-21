@@ -40,7 +40,10 @@ public class EventServiceImpl implements EventService{
         event.setDescription(newEvent.getDescription());
         event.setDate(newEvent.getDate());
         event.setName(newEvent.getName());
-        return event;
+        event.setReminders(newEvent.getReminders());
+        event.setUsers(newEvent.getUsers());
+
+        return eventRepository.save(event);
     }
 
     @Override

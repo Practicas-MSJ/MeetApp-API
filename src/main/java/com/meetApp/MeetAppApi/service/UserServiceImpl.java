@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService{
         user.setPass(newUser.getPass());
         user.setEmail(newUser.getEmail());
         user.setPhoto(newUser.getPhoto());
-        return user;
+        return userRepository.save(user);
 
     }
 

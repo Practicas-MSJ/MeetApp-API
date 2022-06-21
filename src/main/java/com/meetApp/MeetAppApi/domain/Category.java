@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -26,9 +27,7 @@ public class Category {
     @Column
     private Byte[] photo;
 
-    @ManyToOne
-    @JoinColumn(name = "message_id")
-    @JsonBackReference(value = "message-category")
-    private Message message;
+    @OneToMany
+    private List<Message> messages;
 
 }

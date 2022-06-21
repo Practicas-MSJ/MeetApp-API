@@ -35,8 +35,10 @@ public class Message {
     @JsonBackReference(value = "user-message")
     private User user;
 
-    @OneToMany
-    private List<Category> categories;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    @JsonBackReference(value = "category-message")
+    private Category category;
 
 
 
