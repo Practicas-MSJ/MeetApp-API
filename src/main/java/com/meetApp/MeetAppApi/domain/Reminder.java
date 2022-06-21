@@ -18,7 +18,7 @@ import java.time.LocalDate;
 @Table(name = "reminders")
 public class Reminder {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
     private String description;
