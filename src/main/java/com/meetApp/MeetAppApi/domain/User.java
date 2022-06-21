@@ -25,7 +25,7 @@ public class User {
     @Column
     private Byte[] photo;
 
-    @OneToMany
+    @OneToMany(mappedBy = "user")
     private List<Message> messages;
 
     @ManyToMany

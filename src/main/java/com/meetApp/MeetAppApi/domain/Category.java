@@ -27,7 +27,7 @@ public class Category {
     @Column
     private Byte[] photo;
 
-    @OneToMany
+    @OneToMany(mappedBy = "category")
     private List<Message> messages;
 
 }
