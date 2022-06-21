@@ -19,6 +19,10 @@ public class User {
     @Column
     private String name;
     @Column
+    private String pass;
+    @Column
+    private String email;
+    @Column
     private Byte[] photo;
 
     @OneToMany(mappedBy ="user")

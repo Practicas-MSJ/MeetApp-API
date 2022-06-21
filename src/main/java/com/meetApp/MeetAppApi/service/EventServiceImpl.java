@@ -40,7 +40,6 @@ public class EventServiceImpl implements EventService{
         event.setDescription(newEvent.getDescription());
         event.setDate(newEvent.getDate());
         event.setName(newEvent.getName());
-        return null;
+        return event;
     }
-
 }
