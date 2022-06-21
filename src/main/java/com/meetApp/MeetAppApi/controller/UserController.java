@@ -27,7 +27,6 @@ public class UserController {
     @Autowired
     private EventService eventService;
 
-
     // Lista todos los usuarios
     @GetMapping("/users")
     public List<User> getUsers() {
@@ -36,6 +35,13 @@ public class UserController {
         users = userService.findAllUsers();
 
         return users;
+    }
+
+    // Busca un usuario por ID
+    @GetMapping("/user/{id}")
+    public User getUser(@PathVariable long id) {
+        User user = userService.findUser(id);
+        return user;
     }
 
     // Borra un usuarios

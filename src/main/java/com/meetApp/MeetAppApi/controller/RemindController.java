@@ -1,5 +1,6 @@
 package com.meetApp.MeetAppApi.controller;
 
+import com.meetApp.MeetAppApi.domain.Message;
 import com.meetApp.MeetAppApi.domain.Reminder;
 import com.meetApp.MeetAppApi.domain.User;
 import com.meetApp.MeetAppApi.service.MessageService;
@@ -33,6 +34,13 @@ public class RemindController {
         reminders = remindService.findAllReminders();
 
         return reminders;
+    }
+
+    // Busca un recordatorio por ID
+    @GetMapping("/reminder/{id}")
+    public Reminder getReminder(@PathVariable long id) {
+        Reminder reminder = remindService.findReminder(id);
+        return reminder;
     }
 
     // Borra un recordatorio

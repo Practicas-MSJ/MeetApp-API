@@ -13,4 +13,6 @@ public interface UserService {
     User addUser(User user);
 
     User modifyUser(User user, long id);
+
+    User findUser(long id);
 }

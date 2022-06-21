@@ -12,4 +12,6 @@ public interface RemindService {
     Reminder addReminder(Reminder reminder);
 
     Reminder modifyReminder(Reminder reminder, long id);
+
+    Reminder findReminder(long id);
 }
