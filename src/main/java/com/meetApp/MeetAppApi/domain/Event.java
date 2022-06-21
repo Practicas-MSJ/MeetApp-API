@@ -33,7 +33,7 @@ public class Event {
     @ManyToMany
     private List<User> users;
 
-    @ManyToMany
+    @OneToMany
     private List<Reminder> reminders;
 
 

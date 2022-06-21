@@ -37,6 +37,13 @@ public class MessageController {
         return messages;
     }
 
+    // Busca un mensaje por ID
+    @GetMapping("/message/{id}")
+    public Message getMessages(@PathVariable long id) {
+        Message message = messageService.findMessage(id);
+        return message;
+    }
+
     // Borra un mensaje
     @DeleteMapping("/messages/{id}")
     public Message deleteMessage(@PathVariable long id) {

@@ -42,4 +42,10 @@ public class EventServiceImpl implements EventService{
         event.setName(newEvent.getName());
         return event;
     }
+
+    @Override
+    public Event findEvent(long id) {
+        return eventRepository.findById(id)
+                .orElseThrow(null);
+    }
 }

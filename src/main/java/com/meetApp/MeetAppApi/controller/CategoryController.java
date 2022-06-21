@@ -2,6 +2,7 @@ package com.meetApp.MeetAppApi.controller;
 
 import com.meetApp.MeetAppApi.domain.Category;
 import com.meetApp.MeetAppApi.domain.Event;
+import com.meetApp.MeetAppApi.domain.Message;
 import com.meetApp.MeetAppApi.service.CategoryService;
 import com.meetApp.MeetAppApi.service.MessageService;
 import org.slf4j.Logger;
@@ -31,6 +32,13 @@ public class CategoryController {
         categories = categoryService.findAllCategories();
 
         return categories;
+    }
+
+    // Busca una categoría por ID
+    @GetMapping("/category/{id}")
+    public Category getCategories(@PathVariable long id) {
+        Category category = categoryService.findCategory(id);
+        return category;
     }
 
     // Borra una categoría
