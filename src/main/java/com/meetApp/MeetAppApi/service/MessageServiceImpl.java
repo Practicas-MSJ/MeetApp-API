@@ -41,6 +41,6 @@ public class MessageServiceImpl implements MessageService {
         mess.setUser(newMessage.getUser());
         mess.setCategories(newMessage.getCategories());
 
-            return messageRepository.save(mess);
+        return messageRepository.save(mess);
     }
 }

@@ -1,5 +1,7 @@
 package com.meetApp.MeetAppApi.controller;
 
+import com.meetApp.MeetAppApi.domain.Event;
+import com.meetApp.MeetAppApi.domain.Message;
 import com.meetApp.MeetAppApi.service.CategoryService;
 import com.meetApp.MeetAppApi.service.EventService;
 import com.meetApp.MeetAppApi.service.RemindService;
@@ -8,7 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class EventController {
@@ -23,6 +27,37 @@ public class EventController {
 
     @Autowired
     private RemindService remindService;
+
+    // Lista todos los eventos
+    @GetMapping("/events")
+    public List<Event> getEvents() {
+        List<Event> events;
+
+        events = eventService.findAllEvents();
+
+        return events;
+    }
+
+    // Borra un evento
+    @DeleteMapping("/events/{id}")
+    public Event deleteEvent(@PathVariable long id) {
+        Event event = eventService.deleteEvent(id);
+        return event;
+    }
+
+    // Registra un nuevo evento
+    @PostMapping("/event")
+    public Event addEvent(@RequestBody Event event) {
+        Event newEvent = eventService.addEvent(event);
+        return newEvent;
+    }
+
+    // Modifica un evento
+    @PutMapping("/event/{id}")
+    public Event modifyEvent(@RequestBody Event event, @PathVariable long id) {
+        Event newEvent = eventService.modifyEvent(event, id);
+        return newEvent;
+    }
 
 
 
