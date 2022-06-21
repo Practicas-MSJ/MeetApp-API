@@ -35,7 +35,7 @@ public class Message {
     @JsonBackReference(value = "user-message")
     private User user;
 
-    @OneToMany(mappedBy ="message")
+    @OneToMany
     private List<Category> categories;
 
 

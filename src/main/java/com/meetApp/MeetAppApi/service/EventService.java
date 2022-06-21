@@ -12,4 +12,6 @@ public interface EventService {
     Event addEvent(Event event);
 
     Event modifyEvent(Event event, long id);
+
+    Event findEvent(long id);
 }

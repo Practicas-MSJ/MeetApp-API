@@ -44,4 +44,10 @@ public class CategoryServiceImpl implements CategoryService{
         category.setPhoto(newCategory.getPhoto());
         return category;
     }
+
+    @Override
+    public Category findCategory(long id) {
+        return categoryRepository.findById(id)
+                .orElseThrow(null);
+    }
 }

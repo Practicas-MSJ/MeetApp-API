@@ -29,8 +29,13 @@ public class Reminder {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "event_id")
-    @JsonBackReference(value = "event-remind")
+    @JoinColumn(name = "user_id")
+    @JsonBackReference(value = "user-reminder")
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "event_id")
+    @JsonBackReference(value = "event-reminder")
+    private Event event;
 
 }

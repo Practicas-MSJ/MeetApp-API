@@ -12,4 +12,6 @@ public interface CategoryService {
     Category addCategory(Category category);
 
     Category modifyCategory(Category category, long id);
+
+    Category findCategory(long id);
 }

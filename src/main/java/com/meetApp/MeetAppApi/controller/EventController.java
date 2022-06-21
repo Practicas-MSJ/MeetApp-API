@@ -38,6 +38,13 @@ public class EventController {
         return events;
     }
 
+    // Busca un evento por ID
+    @GetMapping("/event/{id}")
+    public Event getEvents(@PathVariable long id) {
+        Event event = eventService.findEvent(id);
+        return event;
+    }
+
     // Borra un evento
     @DeleteMapping("/events/{id}")
     public Event deleteEvent(@PathVariable long id) {

@@ -13,4 +13,6 @@ public interface MessageService {
     Message addMessage(Message message);
 
     Message modifyMessage(Message message, long id);
+
+    Message findMessage(long id);
 }
