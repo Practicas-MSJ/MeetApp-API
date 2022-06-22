@@ -1,0 +1,470 @@
+openapi: 3.0.2
+servers:
+  - url: /Meetapp
+info:
+  description: Your private social network
+  version: "1.0"
+  title: MeetApp
+tags:
+  - name: Users
+    description: Operations for users
+  - name: Messages
+    description: Operations for messages
+  - name: Categories
+    description: Operations for categories
+  - name: Events
+    description: Operations for events
+  - name: Reminders
+    description: Operations for reminders
+paths:
+  /category:
+    post:
+      tags:
+      - category
+      summary: register a new category
+      description: Register a new category
+      operationId: addCategory
+      responses:
+        '200':
+          description: Ok
+  /categories:
+    get:
+      tags:
+      - category
+      summary: list of categories
+      description: Returns the list of categories
+      operationId: getCategories
+      responses:
+        '200':
+          description: Ok
+          
+  /category/{id}:
+    get:
+      tags:
+      - category
+      summary: search by id
+      description: Returns the category by ID
+      operationId: getCategory
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+    delete:
+      tags:
+      - category
+      summary: delete category
+      description: Delete a category
+      operationId: deleteCategory
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Ok
+    put:
+      tags:
+        - category
+      summary: modify a category
+      description: Modify a category
+      operationId: modifyCategory
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Ok
+  /user:
+    post:
+      tags:
+      - user
+      summary: register a new user
+      description: Register a new user
+      operationId: addUser
+      responses:
+        '200':
+          description: Ok
+  /users:
+    get:
+      tags:
+      - user
+      summary: list of users
+      description: Returns the list of users
+      operationId: getUsers
+      responses:
+        '200':
+          description: Ok        
+  /user/{id}:
+    get:
+      tags:
+      - user
+      summary: search by id
+      description: Returns the user by ID
+      operationId: getUser
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    delete:
+      tags:
+      - user
+      summary: delete user
+      description: Delete a user
+      operationId: deleteUser
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Ok
+    put:
+      tags:
+        - user
+      summary: modify a user
+      description: Modify a user
+      operationId: modifyUser
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Ok   
+  /message:
+    post:
+      tags:
+      - message
+      summary: register a new message
+      description: Register a new message
+      operationId: addMessage
+      responses:
+        '200':
+          description: Ok
+  /messages:
+    get:
+      tags:
+      - message
+      summary: list of messages
+      description: Returns the list of message
+      operationId: getMessages
+      responses:
+        '200':
+          description: Ok        
+  /message/{id}:
+    get:
+      tags:
+      - message
+      summary: search by id
+      description: Returns the message by ID
+      operationId: getMessage
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Message'
+    delete:
+      tags:
+      - message
+      summary: delete message
+      description: Delete a message
+      operationId: deleteMessage
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Ok
+    put:
+      tags:
+        - message
+      summary: modify a message
+      description: Modify a message
+      operationId: modifyMessage
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Ok
+  /event:
+    post:
+      tags:
+      - event
+      summary: register a new event
+      description: Register a new event
+      operationId: addEvent
+      responses:
+        '200':
+          description: Ok
+  /events:
+    get:
+      tags:
+      - event
+      summary: list of events
+      description: Returns the list of events
+      operationId: getEvents
+      responses:
+        '200':
+          description: Ok        
+  /event/{id}:
+    get:
+      tags:
+      - event
+      summary: search by id
+      description: Returns the event by ID
+      operationId: getEvent
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+    delete:
+      tags:
+      - event
+      summary: delete event
+      description: Delete a event
+      operationId: deleteEvent
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Ok
+    put:
+      tags:
+        - event
+      summary: modify a event
+      description: Modify a event
+      operationId: modifyEvent
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Ok
+  /reminder:
+    post:
+      tags:
+      - reminder
+      summary: register a new reminder
+      description: Register a new reminder
+      operationId: addReminder
+      responses:
+        '200':
+          description: Ok
+  /reminders:
+    get:
+      tags:
+      - reminder
+      summary: list of reminders
+      description: Returns the list of reminders
+      operationId: getReminders
+      responses:
+        '200':
+          description: Ok        
+  /reminder/{id}:
+    get:
+      tags:
+      - reminder
+      summary: search by id
+      description: Returns the reminder by ID
+      operationId: getReminder
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Reminder'
+    delete:
+      tags:
+      - reminder
+      summary: delete reminder
+      description: Delete a reminder
+      operationId: deleteReminder
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Ok
+    put:
+      tags:
+        - reminder
+      summary: modify a reminder
+      description: Modify a reminder
+      operationId: modifyReminder
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Ok
+components:
+  schemas:
+    Category:
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 3
+        name:
+          type: string
+          example: "Politics"
+        description:
+          type: string
+          example: "Messages about politics"
+        favourite:
+          type: boolean
+          example: false
+        photo:
+          type: object
+          format: int64
+    User:
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 3
+        name:
+          type: string
+          example: "Antonio"
+        pass:
+          type: string
+          example: "1234"
+        email:
+          type: string
+          example: "example@example.com"
+        photo:
+          type: object
+          format: int64      
+    Message:
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 3
+        text:
+          type: string
+          example: "This is a message"
+        date:
+          type: string
+          example: "12-11-2023"
+        favourite:
+          type: boolean
+          example: true
+        image:
+          type: object
+          format: int64
+    Event:
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 3
+        name:
+          type: string
+          format: "Birthday"
+        location:
+          type: string
+          example: "Zaragoza"
+        date:
+          type: string
+          example: "12-11-2023"
+        description:
+          type: string
+          example: "Party to celebrate the Alejandra'birthday "
+    Reminder:
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 3
+        name:
+          type: string
+          format: "Pay the invoice"
+        date:
+          type: string
+          example: "12-11-2023"
+        description:
+          type: string
+          example: "This is a remander"
+        
