@@ -1,7 +1,9 @@
 package com.meetApp.MeetAppApi.service;
 
 import com.meetApp.MeetAppApi.domain.Message;
+import com.meetApp.MeetAppApi.domain.User;
 import com.meetApp.MeetAppApi.repository.MessageRepository;
+import com.meetApp.MeetAppApi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,9 @@ public class MessageServiceImpl implements MessageService {
 
     @Autowired
     private MessageRepository messageRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public List<Message> findAllMessages() {
@@ -27,7 +32,8 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public Message addMessage(Message message) {
+    public Message addMessage(Message message, User user) {
+        message.setUser(user);
         return messageRepository.save(message);
     }
 

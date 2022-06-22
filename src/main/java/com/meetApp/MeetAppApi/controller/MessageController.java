@@ -1,6 +1,7 @@
 package com.meetApp.MeetAppApi.controller;
 
 import com.meetApp.MeetAppApi.domain.Message;
+import com.meetApp.MeetAppApi.domain.User;
 import com.meetApp.MeetAppApi.service.CategoryService;
 import com.meetApp.MeetAppApi.service.MessageService;
 import com.meetApp.MeetAppApi.service.UserService;
@@ -18,6 +19,9 @@ public class MessageController {
 
     @Autowired
     private MessageService messageService;
+
+    @Autowired
+    private UserService userService;
 
     // Lista todos los mensajes
     @GetMapping("/messages")
@@ -53,10 +57,13 @@ public class MessageController {
     }
 
     // Registra un nuevo mensaje
-    @PostMapping("/message")
-    public Message addMessage(@RequestBody Message message) {
+    @PostMapping("/user/{userId}/message")
+    public Message addMessage(@RequestBody Message message, @PathVariable long userId) {
+        logger.info("Find user name for new message");
+        User user = userService.findUser(userId);
+
         logger.info("Register a new message", message);
-        Message newMessage = messageService.addMessage(message);
+        Message newMessage = messageService.addMessage(message, user);
 
         logger.info("End register a new message", message);
         return newMessage;

@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"text\": \"Otro mensaje más\",\r\n    \"date\": \"09-05-2045\",\r\n    \"favourite\": false,\r\n    \"image\": null\r\n}",
+							"raw": "{\r\n    \"text\": \"HOLA MUNDO\",\r\n    \"date\": \"09-05-2045\",\r\n    \"favourite\": false,\r\n    \"image\": null\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -24,13 +24,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/message",
+							"raw": "http://localhost:8080/user/2/message",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"user",
+								"2",
 								"message"
 							]
 						}
@@ -379,7 +381,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"ASDFG\",\r\n    \"pass\": \"123456\",\r\n    \"email\": \"jio@jio.com\",\r\n    \"photo\": null\r\n}",
+							"raw": "{\r\n    \"name\": \"QWERTY\",\r\n    \"pass\": \"123456\",\r\n    \"email\": \"jio@jio.com\",\r\n    \"photo\": null\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -454,7 +456,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/user/1",
+							"raw": "http://localhost:8080/user/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -462,7 +464,7 @@
 							"port": "8080",
 							"path": [
 								"user",
-								"1"
+								"2"
 							]
 						}
 					},
