@@ -29,9 +29,17 @@ public class User {
     private List<Message> messages;
 
     @ManyToMany
+    @JoinTable(
+            name = "events_users",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "event_id"))
     private List<Event> events;
 
     @ManyToMany
+    @JoinTable(
+            name = "reminders_users",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "reminder_id"))
     private List<Reminder> reminders;
 
 

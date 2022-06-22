@@ -30,7 +30,7 @@ public class Reminder {
     private String name;
 
     @ManyToMany
-    private List<User> user;
+    private List<User> users;
 
     @ManyToOne
     @JoinColumn(name = "event_id")
