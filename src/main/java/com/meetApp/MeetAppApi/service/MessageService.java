@@ -1,6 +1,7 @@
 package com.meetApp.MeetAppApi.service;
 
 import com.meetApp.MeetAppApi.domain.Message;
+import com.meetApp.MeetAppApi.domain.User;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ public interface MessageService {
 
     Message deleteMessage(long id);
 
-    Message addMessage(Message message);
+    Message addMessage(Message message, User user);
 
     Message modifyMessage(Message message, long id);
 
