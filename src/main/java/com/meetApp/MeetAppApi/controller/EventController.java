@@ -1,6 +1,7 @@
 package com.meetApp.MeetAppApi.controller;
 
 import com.meetApp.MeetAppApi.domain.Event;
+import com.meetApp.MeetAppApi.domain.Message;
 import com.meetApp.MeetAppApi.service.EventService;
 import com.meetApp.MeetAppApi.service.RemindService;
 import com.meetApp.MeetAppApi.service.UserService;
@@ -35,14 +36,11 @@ public class EventController {
     // Busca un evento por ID
     @GetMapping("/event/{id}")
     public Event getEvents(@PathVariable long id) {
-      logger.info("Prepare list for all events");
-      List<Event> events;
+        logger.info("Get message by ID: " + id);
+        Event event = eventService.findEvent(id);
 
-      logger.info("Find all events");
-      events = eventService.findAllEvents();
-
-      logger.info("End find all events");
-      return events;
+        logger.info("End get message by ID: " + id);
+        return event;
     }
 
     // Borra un evento
