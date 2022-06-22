@@ -31,5 +31,8 @@ public class User {
     @ManyToMany
     private List<Event> events;
 
+    @ManyToMany
+    private List<Reminder> reminders;
+
 
 }
