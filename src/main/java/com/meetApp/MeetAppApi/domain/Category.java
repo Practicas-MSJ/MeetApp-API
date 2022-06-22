@@ -27,7 +27,7 @@ public class Category {
     @Column
     private Byte[] photo;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Message> messages;
 
 }

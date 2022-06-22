@@ -33,7 +33,7 @@ public class Event {
     @ManyToMany
     private List<User> users;
 
-    @OneToMany(mappedBy = "event")
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
     private List<Reminder> reminders;
 
 
