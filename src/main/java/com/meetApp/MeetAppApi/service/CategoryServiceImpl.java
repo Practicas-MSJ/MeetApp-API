@@ -39,10 +39,10 @@ public class CategoryServiceImpl implements CategoryService{
                 .orElseThrow(null);
         category.setDescription(newCategory.getDescription());
         category.setFavourite(newCategory.isFavourite());
-        category.setMessage(newCategory.getMessage());
+        category.setMessages(newCategory.getMessages());
         category.setName(newCategory.getName());
         category.setPhoto(newCategory.getPhoto());
-        return category;
+        return categoryRepository.save(category);
     }
 
     @Override

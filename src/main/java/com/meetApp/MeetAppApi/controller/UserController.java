@@ -21,12 +21,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private MessageService messageService;
-
-    @Autowired
-    private EventService eventService;
-
     // Lista todos los usuarios
     @GetMapping("/users")
     public List<User> getUsers() {
@@ -51,7 +45,7 @@ public class UserController {
     }
 
     // Borra un usuarios
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/user/{id}")
     public User deleteUser(@PathVariable long id) {
         logger.info("Delete user with ID: " + id);
         User user = userService.deleteUser(id);

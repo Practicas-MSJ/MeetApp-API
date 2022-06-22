@@ -10,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -18,7 +19,7 @@ import java.time.LocalDate;
 @Table(name = "reminders")
 public class Reminder {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
     private String description;
@@ -28,10 +29,8 @@ public class Reminder {
     @Column
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    @JsonBackReference(value = "user-reminder")
-    private User user;
+    @ManyToMany
+    private List<User> users;
 
     @ManyToOne
     @JoinColumn(name = "event_id")

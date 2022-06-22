@@ -18,7 +18,7 @@ import java.util.List;
 @Table(name = "messages")
 public class Message {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
     private String text;
@@ -35,8 +35,10 @@ public class Message {
     @JsonBackReference(value = "user-message")
     private User user;
 
-    @OneToMany
-    private List<Category> categories;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    @JsonBackReference(value = "category-message")
+    private Category category;
 
 
 

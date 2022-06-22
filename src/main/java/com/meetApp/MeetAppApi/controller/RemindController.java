@@ -18,10 +18,6 @@ public class RemindController {
     @Autowired
     private RemindService remindService;
 
-    @Autowired
-    private UserService userService;
-
-
     // Lista todos los recordatorios
     @GetMapping("/reminders")
     public List<Reminder> getReminders() {
@@ -46,7 +42,7 @@ public class RemindController {
     }
 
     // Borra un recordatorio
-    @DeleteMapping("/reminders/{id}")
+    @DeleteMapping("/reminder/{id}")
     public Reminder deleteReminder(@PathVariable long id) {
         logger.info("Delete reminder with ID: " + id);
         Reminder reminder = remindService.deleteReminder(id);

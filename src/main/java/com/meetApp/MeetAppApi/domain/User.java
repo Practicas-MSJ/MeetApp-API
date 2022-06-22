@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
     private String name;
@@ -25,11 +25,22 @@ public class User {
     @Column
     private Byte[] photo;
 
-    @OneToMany
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Message> messages;
 
     @ManyToMany
+    @JoinTable(
+            name = "events_users",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "event_id"))
     private List<Event> events;
+
+    @ManyToMany
+    @JoinTable(
+            name = "reminders_users",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "reminder_id"))
+    private List<Reminder> reminders;
 
 
 }

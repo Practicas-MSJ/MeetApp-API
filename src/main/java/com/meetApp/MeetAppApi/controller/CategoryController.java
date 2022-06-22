@@ -18,9 +18,6 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @Autowired
-    private MessageService  messageService;
-
     // Lista todas las categorías
     @GetMapping("/categories")
     public List<Category> getCategories() {
@@ -46,7 +43,7 @@ public class CategoryController {
     }
 
     // Borra una categoría
-    @DeleteMapping("/categories/{id}")
+    @DeleteMapping("/category/{id}")
     public Category deleteCategory(@PathVariable long id) {
         logger.info("Delete category with ID: " + id);
         Category category = categoryService.deleteCategory(id);

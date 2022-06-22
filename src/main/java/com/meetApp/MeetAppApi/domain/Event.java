@@ -18,7 +18,7 @@ import java.util.List;
 @Table(name = "events")
 public class Event {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
     private String location;
@@ -33,7 +33,7 @@ public class Event {
     @ManyToMany
     private List<User> users;
 
-    @OneToMany
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
     private List<Reminder> reminders;
 
 

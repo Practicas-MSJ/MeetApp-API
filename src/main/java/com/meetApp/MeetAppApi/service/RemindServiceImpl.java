@@ -41,7 +41,7 @@ public class RemindServiceImpl implements RemindService{
         reminder.setDescription(newReminder.getDescription());
         reminder.setDate(newReminder.getDate());
         reminder.setName(newReminder.getName());
-        reminder.setUser(newReminder.getUser());
+        reminder.setUsers(newReminder.getUsers());
 
         return remindRepository.save(reminder);
     }

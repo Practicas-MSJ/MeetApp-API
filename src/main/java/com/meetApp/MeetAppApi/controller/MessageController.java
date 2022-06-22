@@ -19,12 +19,6 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    private CategoryService categoryService;
-
     // Lista todos los mensajes
     @GetMapping("/messages")
     public List<Message> getMessages() {
@@ -49,7 +43,7 @@ public class MessageController {
     }
 
     // Borra un mensaje
-    @DeleteMapping("/messages/{id}")
+    @DeleteMapping("/message/{id}")
     public Message deleteMessage(@PathVariable long id) {
         logger.info("Delete message with ID: " + id);
         Message message = messageService.deleteMessage(id);

@@ -39,7 +39,7 @@ public class MessageServiceImpl implements MessageService {
         mess.setDate(newMessage.getDate());
         mess.setFavourite(newMessage.isFavourite());
         mess.setUser(newMessage.getUser());
-        mess.setCategories(newMessage.getCategories());
+        mess.setCategory(newMessage.getCategory());
 
         return messageRepository.save(mess);
     }

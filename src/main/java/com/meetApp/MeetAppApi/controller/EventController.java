@@ -19,12 +19,6 @@ public class EventController {
     @Autowired
     private EventService eventService;
 
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    private RemindService remindService;
-
     // Lista todos los eventos
     @GetMapping("/events")
     public List<Event> getEvents() {
@@ -41,15 +35,18 @@ public class EventController {
     // Busca un evento por ID
     @GetMapping("/event/{id}")
     public Event getEvents(@PathVariable long id) {
-        logger.info("Find event by ID: " + id);
-        Event event = eventService.findEvent(id);
+      logger.info("Prepare list for all events");
+      List<Event> events;
 
-        logger.info("Enda find event by ID: " + id);
-        return event;
+      logger.info("Find all events");
+      events = eventService.findAllEvents();
+
+      logger.info("End find all events");
+      return events;
     }
 
     // Borra un evento
-    @DeleteMapping("/events/{id}")
+    @DeleteMapping("/event/{id}")
     public Event deleteEvent(@PathVariable long id) {
         logger.info("Delete event with ID: " + id);
         Event event = eventService.deleteEvent(id);

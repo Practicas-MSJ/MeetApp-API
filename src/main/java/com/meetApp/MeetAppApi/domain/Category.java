@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -15,7 +16,7 @@ import javax.persistence.*;
 @Table(name = "categories")
 public class Category {
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
     @Column
     private String name;
@@ -26,9 +27,7 @@ public class Category {
     @Column
     private Byte[] photo;
 
-    @ManyToOne
-    @JoinColumn(name = "message_id")
-    @JsonBackReference(value = "message-category")
-    private Message message;
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private List<Message> messages;
 
 }
