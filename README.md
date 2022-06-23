@@ -1,2 +1,2 @@
 # MeetApp-API
-API para la gestión de la API de una aplicación de red social privada de amigos 
+API for the management of the API of a friends private social network application
